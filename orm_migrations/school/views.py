@@ -12,12 +12,12 @@ from .utils import query_debugger
 @query_debugger
 def students_list(request):
     template = 'school/students_list.html'
-    students = Student.objects.prefetch_related
-    # students = Student.objects.all()
+    # students = Student.objects.prefetch_related
+    students = Student.objects.all()
     context = {'students': students}
 
     # используйте этот параметр для упорядочивания результатов
     # https://docs.djangoproject.com/en/2.2/ref/models/querysets/#django.db.models.query.QuerySet.order_by
-    # ordering = 'group'
+    ordering = 'group'
 
     return render(request, template, context)

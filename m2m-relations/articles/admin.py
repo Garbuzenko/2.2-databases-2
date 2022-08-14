@@ -15,10 +15,10 @@ class RelationshipInlineFormset(BaseInlineFormSet):
             # вызовом исключения ValidationError можно указать админке о наличие ошибки
             # таким образом объект не будет сохранен,
             # а пользователю выведется соответствующее сообщение об ошибке
-            if main_count < 1:
-                raise ValidationError('Необходимо выбрать основной Тег')
-            if main_count > 1:
-                raise ValidationError('Должен быть только один основной Тег')
+        if main_count < 1:
+            raise ValidationError('Необходимо выбрать основной Тег')
+        if main_count > 1:
+            raise ValidationError('Должен быть только один основной Тег')
         return super().clean()  # вызываем базовый код переопределяемого метода
 
 class RelationshipInline(admin.TabularInline):

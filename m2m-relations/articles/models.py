@@ -22,6 +22,6 @@ class Article(models.Model):
         return self.title
 
 class ArcticleTag(models.Model):
-    tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name='positions')
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='positions')
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name='scopes') #, related_name='positions'
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='scopes') #, related_name='positions'
     is_main = models.BooleanField(default=False, verbose_name='Основной')
